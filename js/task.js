@@ -41,10 +41,10 @@ function animateProgress(task, isTaskAdded) {
     //check if task reached 100% remove task and clear interval
 		if (width >= 100) {
       clearInterval(id);
+      //internally checks if any waiting task left
+      removeTaskFromServer(task.id);
       //delete the task and free the server 
       deleteTask(task);
-      //internally checks if any waiting task left
-	    removeTaskFromServer(task.id, serverMap);
 			i = 0;
 		} else {
 			width += 5;

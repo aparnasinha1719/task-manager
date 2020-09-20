@@ -17,7 +17,7 @@ function addTaskToServer(task,serverMap){
   }
   // removeTaskFromServer...
   //remove task from server
-  function removeTaskFromServer(taskId,serverMap){
+  function removeTaskFromServer(taskId){
     serverMap.forEach((value,key)=>{
         //check if 'task' property available and matches the arg taskId delete the task property from server and remove the task assigned message to it
       if(value.hasOwnProperty('task') && value.task==taskId){
@@ -29,7 +29,8 @@ function addTaskToServer(task,serverMap){
           return;
         }
         //function call to check if any waiting task available after server deletion
-        assignWaitingTaskToServer(value,key);
+      assignWaitingTaskToServer(value,key);
+
       }
   
     });
@@ -45,6 +46,7 @@ function addTaskToServer(task,serverMap){
             taskMap.set(key,'')
             // start the progress animation
             animateProgress(document.getElementById(key),true);
+            break;
           }
     }
   
