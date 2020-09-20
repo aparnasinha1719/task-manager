@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="js/task.js"></script>
     <script src="js/server.js"></script>
+    <script src="js/execution.js"></script>
+
 </head>
 <body onload="addServer()">
-    <button type="button" class="btn btn-primary" onclick="addServer()">Add Server</button>
+    <button type="button" class="btn btn-primary" onclick="addServer(taskMap)">Add Server</button>
     <!-- <button type="button" class="btn btn-primary">Remove Server</button> -->
     <div class="container">
         <div class="row">
           <div id="serverColumn" class="col-7">
-            <div id="serverSample" class="card text-center" style="width: 8rem;display: none;" >
+            <div id="serverSample" class="card text-center" style="width: 10rem;display: none;" >
                 <h6></h6>
+                <p></p>
                 <button type="button" class="btn btn-primary" onclick="deleteServer(event)">Remove Server</button>
                </div>
             
@@ -28,13 +31,14 @@
                   <label for="inputPassword2" class="sr-only">Count Task</label>
                   <input type="number" class="form-control" id="taskCount" placeholder="Task" value="1">
                 </div>
-                <button class="btn btn-primary mb-2" onclick="addTask()">Add Task</button>
+                <button class="btn btn-primary mb-2" onclick="addTask(serverMap)">Add Task</button>
             </div>
             <div id="taskSample" style="display: none;">
                 <h6></h6>
                 <div  class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">75%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                   </div>
+                  <p></p>
                   <!-- <button type="button" class="btn btn-outline-primary"  > -->
                     <!-- delete -->
                     <i class="fa fa-trash-o" onclick="deleteTask(event.target.parentNode)" style ="cursor:pointer" aria-hidden="true"></i>

@@ -1,4 +1,5 @@
-let serverMap = new Map();
+
+var serverMap = new Map();
 var serverCount=0;
 // serverMap.set();
 // var serverArray=[{
@@ -6,7 +7,8 @@ var serverCount=0;
 //     task:''
 // }]
 
-function addServer(){
+function addServer(task){
+    console.log(task);
     if(serverMap.size==10){
         alert('Maximum 10 servers can be added!');
         return;
@@ -20,6 +22,7 @@ function addServer(){
     serverColumn.appendChild(clone);
     // serverArray.push({_id:'server'+(serverArray.length+1)});
     serverMap.set('server'+serverCount, {})
+    assignWaitingTaskToServer(serverMap.get('server'+serverCount),'server'+serverCount)
     console.log(serverMap);
    
 }
