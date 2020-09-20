@@ -29,6 +29,7 @@ for(var i=0; i<taskCount; i++){
       return;
     }
     pElem.innerHTML='';
+    task.querySelector('i').style.display='none';
     var id = setInterval(frame, 500);
     function frame() {
       if (width >= 100) {
@@ -92,6 +93,10 @@ function removeTaskFromServer(taskId,serverMap){
       delete value.task;
       document.getElementById(key).querySelector('p').innerHTML='';
       //assign new task if present in waiting state
+      if(value.deleteStatus){
+        deleteServer(document.getElementById(key));
+        return;
+      }
       assignWaitingTaskToServer(value,key);
     }
   // console.log(serverMap);
@@ -115,3 +120,7 @@ function assignWaitingTaskToServer(server,serverKey){
 
 }
 
+//function to change the  delete icon display
+function hideDeleteIconInTask(taskSection){
+  taskSection.style.display='none';
+}

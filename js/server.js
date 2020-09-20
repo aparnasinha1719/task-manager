@@ -27,15 +27,23 @@ function addServer(task){
    
 }
 
-function deleteServer(event){
+function deleteServer(server){
     serverColumn = document.getElementById("serverColumn");
+
     if(serverMap.size==1){
         alert('Atleast 1 server must be present!');
         return;
     }
-    serverColumn.removeChild(event.target.parentNode);
-    // serverArray.splice()
-    serverMap.delete(event.target.parentNode.id)
+    //check if server is performing any task
+    if(!serverMap.get(server.id).task){
+        serverColumn.removeChild(server);
+        // serverArray.splice()
+        serverMap.delete(server.id);
+    }else{
+        var obj=serverMap.get(server.id);
+        obj.deleteStatus=true;
+      serverMap.set(server.id,obj);
+    }
     console.log(serverMap);
 
 }
