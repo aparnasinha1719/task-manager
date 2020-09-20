@@ -9,16 +9,17 @@
     <script src="js/task.js"></script>
     <script src="js/server.js"></script>
 </head>
-<body>
+<body onload="addServer()">
     <button type="button" class="btn btn-primary" onclick="addServer()">Add Server</button>
-    <button type="button" class="btn btn-primary">Remove Server</button>
+    <!-- <button type="button" class="btn btn-primary">Remove Server</button> -->
     <div class="container">
         <div class="row">
           <div id="serverColumn" class="col-7">
-            <div id="server1" class="card text-center" style="width: 8rem;">
-               <h6>SERVER 1</h6>
-               <button type="button" class="btn btn-primary" onclick="deleteServer(event)">Delete</button>
-              </div>
+            <div id="serverSample" class="card text-center" style="width: 8rem;display: none;" >
+                <h6></h6>
+                <button type="button" class="btn btn-primary" onclick="deleteServer(event)">Remove Server</button>
+               </div>
+            
           </div>
 
           <div id="taskColumn" class="col-5">
